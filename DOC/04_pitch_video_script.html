@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PITCH_VIDEO_SCRIPT.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="drishtisport-ai--4-minute-pitch-video-script">DrishtiSport AI — 4-Minute Pitch Video Script</h1>
+<p><strong>Total: 240 seconds, timed to FITT's own budget. Fill remaining [BRACKETS] before recording.</strong></p>
+<hr>
+<h2 id="1-introduction--15s-35-40-words">1. Introduction — 15s (~35-40 words)</h2>
+<blockquote>
+<p>&quot;Hi, I'm [Your Full Name], a solo builder from Gayatri Vidya Parishad College of Engineering, Visakhapatnam. I'm here with DrishtiSport AI — for Samsung Solve for Tomorrow's Sport &amp; Tech theme. My mission: put elite sports biomechanics in the pocket of every rural athlete in India.&quot;</p>
+</blockquote>
+<p><em>(Slide: Title, then cut to Introduction/Team)</em></p>
+<hr>
+<h2 id="2-problem--45s-110-120-words">2. Problem — 45s (~110-120 words)</h2>
+<blockquote>
+<p>&quot;Here's the gap nobody's pricing for. 98% of rural Indian athletes train with zero access to biomechanical analysis — a proper motion-capture session costs over ₹5,000 an hour, restricted to elite labs in big cities.</p>
+<p>Here's how sharp that gap gets: cricket's ICC Law 24.3 sets a hard 15-degree elbow-extension limit for a legal bowling action. But no rural coach or umpire has the equipment to check it. Bowlers get called out mid-match with zero warning — or worse, an unsafe action goes uncorrected until it ends a career.</p>
+<p>[Your real inspiration line — e.g. 'I saw this happen firsthand when...'] That's the moment this became personal for me.&quot;</p>
+</blockquote>
+<p><em>(Slide: Problem/Opportunity)</em></p>
+<hr>
+<h2 id="3-solution--45s-total-25s-narration--20s-demo-clip-insert">3. Solution — 45s total (~25s narration + ~20s demo clip insert)</h2>
+<p><strong>Narration (25s, ~60 words):</strong></p>
+<blockquote>
+<p>&quot;DrishtiSport AI is a free, 100% offline app that turns any budget smartphone camera into a real-time biomechanics coach. On-device AI — MediaPipe pose tracking plus a lightweight ONNX model — reads joint angles frame by frame. Here's the app actually checking a bowling action against that 15-degree legal limit.&quot;</p>
+</blockquote>
+<p><strong>[CUT TO DEMO CLIP INSERT — 20s total, edited from your recorded <code>final_demo.mp4</code> / <code>final_demo_illegal.mp4</code> outputs]</strong></p>
+<p>This is a video-editing insert, not something performed live — you already recorded and ran both takes through the app per the demo build steps. Splice it roughly like this:</p>
+<ul>
+<li><strong>0-8s</strong>: legal take — skeleton overlay tracking the arm, ending on the green &quot;LEGAL ACTION&quot; result card holding on screen</li>
+<li><strong>8-9s</strong>: quick hard cut (no fade needed)</li>
+<li><strong>9-18s</strong>: illegal take — same flow, ending on the red &quot;ILLEGAL ACTION&quot; result card</li>
+<li><strong>18-20s</strong>: hold on the illegal result card a beat longer before cutting back to you</li>
+</ul>
+<p>Keep narration minimal or silent under this segment — let the on-screen tracking, angle numbers, and result cards speak for themselves. This is the moment that proves &quot;real, working prototype&quot; instead of &quot;just slides,&quot; so don't talk over it.</p>
+<p><em>(Slide: Solution — architecture flow diagram visible right before the clip insert, then straight to the clip)</em></p>
+<hr>
+<h2 id="4-customer--30s-75-words">4. Customer — 30s (~75 words)</h2>
+<blockquote>
+<p>&quot;This serves three people. The athlete — training in Tier 2 and Tier 3 India, phone in hand, no coach available. The PE teacher or grassroots coach — managing a full ground with zero specialized equipment. And the talent scout — who needs objective, verifiable performance data instead of a subjective opinion after one match.</p>
+<p>Right now, I'm targeting individual athletes and coaches directly. Next: sports academies as paying institutional customers.&quot;</p>
+</blockquote>
+<p><em>(Slide: Customer)</em></p>
+<hr>
+<h2 id="5-competition--20s-50-words">5. Competition — 20s (~50 words)</h2>
+<blockquote>
+<p>&quot;Motion-capture labs are accurate but locked away in cities. Wearable sensors cost per athlete and don't scale. Generic fitness apps give vague 'good form' scores with no real accuracy. DrishtiSport AI is different: offline, zero extra hardware, and a tamper-proof verified log that fights scouting bias — nobody else does that.&quot;</p>
+</blockquote>
+<p><em>(Slide: Competition/Unique Value Proposition)</em></p>
+<hr>
+<h2 id="6-marketing-strategy--20s-50-words">6. Marketing Strategy — 20s (~50 words)</h2>
+<blockquote>
+<p>&quot;My go-to-market starts local: partnering directly with cricket and athletics academies here in Visakhapatnam and Andhra Pradesh as first pilot users, validated hands-on through FITT-IIT Delhi's labs. From there, word spreads coach-to-coach and academy-to-academy — the same grassroots network that already connects India's sporting talent.&quot;</p>
+</blockquote>
+<p><em>(No dedicated template slide for this — narrate over the Customer or Competition slide visuals, whichever is on screen)</em></p>
+<hr>
+<h2 id="7-revenue-model--20s-50-words">7. Revenue Model — 20s (~50 words)</h2>
+<blockquote>
+<p>&quot;The app stays free forever for athletes and schools — that's the adoption engine. Revenue comes from academies paying an annual subscription for a scouting analytics dashboard, plus data licensing to sports federations for talent identification. Steady subscriptions, with high-value licensing deals on top.&quot;</p>
+</blockquote>
+<p><em>(Slide: Revenue Model)</em></p>
+<hr>
+<h2 id="8-traction--milestones--30s-75-words">8. Traction &amp; Milestones — 30s (~75 words)</h2>
+<blockquote>
+<p>&quot;Where things stand today: the cricket bowling-legality module is a working prototype — not a mockup, what you just saw is real, running code. I've been refining this through FITT-IIT Delhi's mentorship since the Top 100 selection. Next milestones: validating the model against certified biomechanics equipment in IIT Delhi's labs, then expanding to sprint and kabaddi injury-risk modules.&quot;</p>
+</blockquote>
+<p><em>(No dedicated template slide — narrate over the Solution slide's roadmap section, or a brief return to it)</em></p>
+<hr>
+<h2 id="9-team--15s-35-40-words">9. Team — 15s (~35-40 words)</h2>
+<blockquote>
+<p>&quot;I'm building this end-to-end, solo — computer vision, mobile development, and the sports grounding that started it all. One builder, one focused mission. Scan the QR to watch the full working demo. Thank you, DrishtiSport AI.&quot;</p>
+</blockquote>
+<p><em>(Slide: Closing — contact details, the ask for FITT-IIT Delhi lab access, and the demo link + QR code all visible on screen for this entire 15s beat, not just a flash at the end)</em></p>
+<hr>
+<h2 id="delivery-notes">Delivery notes</h2>
+<ul>
+<li><strong>Total spoken word count target: ~485-520 words</strong> across the ~220 seconds of actual narration (240s total minus the ~20s demo-clip insert where you go quiet) — a natural, unhurried pace. Time yourself reading it aloud before recording; trim mid-sentence rather than speeding up if you're running over.</li>
+<li><strong>The 20-second demo clip insert is the single highest-value moment in the video</strong> — it's pre-recorded and edited in, not performed live, so there's no risk of it glitching during your actual take. If you're tight on time anywhere else, protect this segment first; don't shorten it to claw back seconds elsewhere.</li>
+<li><strong>Recording order that actually works</strong>: (1) finish the app demo recordings and get <code>final_demo.mp4</code> / <code>final_demo_illegal.mp4</code> first, (2) edit those into the ~20s insert described above, (3) record your own narration to picture afterward, so your Solution-slide timing naturally lines up with where the clip starts and ends.</li>
+<li><strong>QR code/demo link</strong>: visible on screen for the entire Team/Closing 15s beat, not just a flash at the very end — a judge glancing at their second screen needs a couple of seconds to actually scan it.</li>
+<li>Read Problem and Solution's inspiration/narration beats with the most energy — those are your two highest-weighted timing slots (45s each) for a reason.</li>
+</ul>
+
+</body>
+</html>

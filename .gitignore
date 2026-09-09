@@ -1,0 +1,28 @@
+# Large media / binary assets - hosted externally (Drive/YouTube), not versioned here
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.pptx
+*.ppt
+*.pdf
+*.db
+*.sqlite
+*.sqlite3
+
+# Large raster exports of the script (keep the .md source, not these renders)
+PITCH_VIDEO_SCRIPT.jpeg
+PITCH_VIDEO_SCRIPT.png
+
+# Windows shortcuts / junk
+*.lnk
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.pyc
+
+# Raw take/scratch folders (personal recordings, stock footage)
+/me/
+/demo/stock/
