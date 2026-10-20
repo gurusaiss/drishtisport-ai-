@@ -28,6 +28,7 @@ Built solo by [Your Full Name], Gayatri Vidya Parishad College of Engineering
   - [`04_pitch_video_script.html`](DOC/04_pitch_video_script.html) — rendered HTML version of the same script
   - [`05_logo_generation_prompt.md`](DOC/05_logo_generation_prompt.md) — the AI image-generation prompt used for the project logo
   - [`06_demo_run_guide.md`](DOC/06_demo_run_guide.md) — how to record a clip, run the demo, and export the annotated result
+  - [`report.md`](DOC/report.md) — master project report: architecture, issue history, decision log, interview prep and revision sheets
 - **[`demo/`](demo/)** — the working MVP code only: `drishtisport_demo.py` (bowling-action legality checker) and `view_log.py` (verified delivery-log viewer), plus the demo QR image. Run instructions live in [`DOC/06_demo_run_guide.md`](DOC/06_demo_run_guide.md).
 - **[`submission/`](submission/)** — the submitted Top 100 pitch deck (`Samsung4all_Pitch_Deck.pptx` and `.pdf`).
 
