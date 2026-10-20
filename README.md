@@ -12,6 +12,11 @@ and logs every delivery to a local, tamper-proof performance record.
 Built solo by [Your Full Name], Gayatri Vidya Parishad College of Engineering
 (GVPCE), Visakhapatnam.
 
+## Pitch deck
+
+- [View the deck (PDF)](submission/Samsung4all_Pitch_Deck.pdf)
+- [Download the deck (PPTX)](submission/Samsung4all_Pitch_Deck.pptx)
+
 ## Repository structure
 
 - **[`DOC/`](DOC/)** — everything submitted or prepared as documentation for the
