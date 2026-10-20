@@ -22,11 +22,13 @@ Built solo by [Your Full Name], Gayatri Vidya Parishad College of Engineering
   - [`04_pitch_video_script.md`](DOC/04_pitch_video_script.md) — the timed 4-minute pitch video narration script
   - [`04_pitch_video_script.html`](DOC/04_pitch_video_script.html) — rendered HTML version of the same script
   - [`05_logo_generation_prompt.md`](DOC/05_logo_generation_prompt.md) — the AI image-generation prompt used for the project logo
-- **[`demo/`](demo/)** — the working MVP: `drishtisport_demo.py` (live bowling-action legality checker) and `view_log.py` (verified delivery-log viewer). See [`demo/README_DEMO.md`](demo/README_DEMO.md) for how to run it.
+  - [`06_demo_run_guide.md`](DOC/06_demo_run_guide.md) — how to record a clip, run the demo, and export the annotated result
+- **[`demo/`](demo/)** — the working MVP code only: `drishtisport_demo.py` (bowling-action legality checker) and `view_log.py` (verified delivery-log viewer), plus the demo QR image. Run instructions live in [`DOC/06_demo_run_guide.md`](DOC/06_demo_run_guide.md).
+- **[`submission/`](submission/)** — the submitted Top 100 pitch deck (`Samsung4all_Pitch_Deck.pptx` and `.pdf`).
 
 ## Note on large media files
 
-Recorded demo takes, the exported pitch video, the final PPTX/PDF deck, and the
-SQLite log file are intentionally **not** committed to this repository (see
-`.gitignore`) — they're large binary/video assets better hosted elsewhere (Google
-Drive/YouTube link + QR code, per the submission) rather than versioned in git.
+Videos (the pitch video, raw demo takes, stock footage) and the local SQLite log
+are intentionally **not** committed (see `.gitignore`) — they're large binaries,
+and the pitch video exceeds GitHub's 100 MB file limit. The pitch/demo video is
+shared via the Google Drive link + QR code from the submission instead.

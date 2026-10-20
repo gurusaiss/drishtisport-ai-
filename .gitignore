@@ -10,6 +10,10 @@
 *.sqlite
 *.sqlite3
 
+# Exception: the submitted deck (small enough for GitHub) is versioned in submission/
+!submission/*.pptx
+!submission/*.pdf
+
 # Large raster exports of the script (keep the .md source, not these renders)
 PITCH_VIDEO_SCRIPT.jpeg
 PITCH_VIDEO_SCRIPT.png
